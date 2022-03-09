@@ -1,0 +1,83 @@
+<ion-content [fullscreen]="true">
+
+  <!--      title      -->
+  <ion-header collapse="fade" class="ion-no-border">
+    <ion-toolbar class="ion-text-center">
+      <ion-title class="tittle ion-text-wrap">Admin Time</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!--      Description       -->
+  <ion-item class="marginTop ion-text-center" lines="none">
+    <ion-label class="ion-text-wrap">
+      Select the number of counters you want to have:
+    </ion-label>
+  </ion-item>
+
+  <!--      Counter      -->
+  <section class="ion-text-center">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="ion-align-self-center">
+          <ion-button
+            (click)="up()"
+            fill="outline"
+            size="large"
+            class="buttons"
+          >
+            up
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col></ion-col>
+        <ion-col>
+          <ion-input
+            placeholder="horas"
+            type="number"
+            class="numberInput"
+            id="counter"
+            ></ion-input>
+        </ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-align-self-center">
+          <ion-button
+            (click)="down()"
+            fill="outline"
+            size="large"
+            class="buttons"
+          >
+            down
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row class="marginTop">
+        <ion-col></ion-col>
+        <ion-col></ion-col>
+        <ion-col>
+          <ion-button
+            color="dark"
+            (click)="next()"
+            fill="outline"
+            size="medium"
+            class="buttonNext"
+          >
+            Next ->
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </section>
+
+  <!--      footer      -->
+  <ion-footer class="ion-no-border">
+    <ion-toolbar>
+      <ion-card-subtitle class="ion-text-center" lines="none"
+        >You can go back in this configuration</ion-card-subtitle
+      >
+    </ion-toolbar>
+  </ion-footer>
+
+</ion-content>
