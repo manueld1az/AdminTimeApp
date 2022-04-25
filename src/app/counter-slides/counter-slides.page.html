@@ -1,25 +1,35 @@
 <ion-content [fullscreen]="true">
   <ion-grid>
-    <!-- Title -->
+    <!-- Title Input -->
     <ion-row>
       <ion-col class="columnInputs">
-        <ion-label class="bigText ion-text-wrap">Admin Time</ion-label>
+        <ion-input
+          placeholder="Title"
+          type="text"
+          class="bigText"
+          id="title"
+          #title
+        ></ion-input>
       </ion-col>
     </ion-row>
 
-    <!-- Description -->
+    <!-- Description Input -->
     <ion-row>
       <ion-col class="columnInputs">
-        <ion-label class="ion-text-wrap">
-          Select the number of counters you want to have:
-        </ion-label>
+        <ion-input
+          placeholder="Description"
+          type="text"
+          class="descriptionInput"
+          id="description"
+          #description
+        ></ion-input>
       </ion-col>
     </ion-row>
 
     <!-- Button Up -->
     <ion-row>
       <ion-col class="counterButtons">
-        <ion-button (click)="up()" fill="solid" size="large" class="buttons">
+        <ion-button (click)="up(counter)" fill="solid" size="large" class="buttons">
           up
         </ion-button>
       </ion-col>
@@ -29,13 +39,12 @@
     <ion-row>
       <ion-col class="columnInputs">
         <ion-input
-          placeholder="counters"
+          placeholder="00 Hours"
           type="number"
           class="bigText"
           id="counter"
-          required
           disabled
-          #numbersOfCounters
+          #counter
         ></ion-input>
       </ion-col>
     </ion-row>
@@ -43,23 +52,36 @@
     <!-- Button Down -->
     <ion-row>
       <ion-col class="counterButtons">
-        <ion-button (click)="down()" fill="solid" size="large" class="buttons">
+        <ion-button (click)="down(counter)" fill="solid" size="large" class="buttons">
           down
         </ion-button>
       </ion-col>
     </ion-row>
 
-    <!-- Button Start -->
+    <!-- Buttons Nav -->
     <ion-row>
       <ion-col class="columnNavButtons">
+        <!-- Button Back -->
         <ion-button
           color="dark"
-          (click)="redirectionToCounterSlides(numbersOfCounters)"
+          (click)="back(title, description, counter)"
           fill="solid"
           size="medium"
-          class="buttonStart"
+          class="backButton"
         >
-          Start
+          <- Back
+        </ion-button>
+
+        <!-- Button Next -->
+        <ion-button
+          type="submit"
+          color="dark"
+          (click)="next(title, description, counter)"
+          fill="solid"
+          size="medium"
+          class="nextButton"
+        >
+          Next ->
         </ion-button>
       </ion-col>
     </ion-row>
@@ -68,7 +90,7 @@
     <ion-row>
       <ion-col>
         <ion-card-subtitle class="ion-text-center" lines="none">
-          You can go back in this configuration
+          You can edit these settings
         </ion-card-subtitle>
       </ion-col>
     </ion-row>

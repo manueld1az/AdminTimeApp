@@ -1,11 +1,7 @@
-import { Component } from '@angular/core';
-import { SwiperComponent } from "swiper/angular";
+import { Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
+import { CountersManagerService } from '../counters-manager.service';
 
-// import Swiper core and required modules
-import SwiperCore, { Navigation } from "swiper";
-
-// install Swiper modules
-SwiperCore.use([Navigation]);
 
 @Component({
   selector: 'app-home',
@@ -13,15 +9,26 @@ SwiperCore.use([Navigation]);
   styleUrls: ['home.page.scss'],
 })
 
-export class HomePage {
+export class HomePage implements OnInit{
 
   counter: any = 0;
-  constructor() { }
+  countersInfo = [];
+
+  constructor(private countersManager: CountersManagerService,
+              private router: Router) {}
+
+  ngOnInit() {
+    this.countersInfo = JSON.parse(localStorage.getItem("formCounter"));
+    if (this.countersInfo != null) {
+      this.router.navigate(['../tabs-counters']);
+    }
+    this.up();
+  }
 
   up() {
     this.counter = document.getElementById("counter").getAttribute("value");
     if (this.counter === null) {
-      this.counter = 0;
+      this.counter = 1;
       document.getElementById("counter").setAttribute("value", this.counter)
     } else {
       this.counter++;
@@ -31,13 +38,17 @@ export class HomePage {
 
   down() {
     this.counter = document.getElementById("counter").getAttribute("value");
-    if (this.counter == null || this.counter == 0) {
-      this.counter = 0;
+    if (this.counter == null || this.counter == 1) {
+      this.counter = 1;
       document.getElementById("counter").setAttribute("value", this.counter)
     } else {
       this.counter--;
       document.getElementById("counter").setAttribute("value", this.counter)
     }
+  }
+
+  redirectionToCounterSlides(numbersOfCounters) {
+    this.countersManager.createSlides(parseInt(numbersOfCounters.value));
   }
 
 }

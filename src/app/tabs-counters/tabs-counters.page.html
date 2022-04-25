@@ -1,0 +1,78 @@
+<ion-content>
+  <ion-grid id="firstGrid">
+    <!-- segments content -->
+
+    <!-- Title Input -->
+    <ion-row>
+      <ion-col class="columnInputs">
+        <ion-input
+          [value]="title"
+          placeholder="Title"
+          type="text"
+          class="bigText"
+          id="title"
+        ></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <!-- Description Input -->
+    <ion-row>
+      <ion-col class="columnInputs">
+        <ion-input
+          [value]="description"
+          placeholder="Description"
+          type="text"
+          id="description"
+        ></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <!-- Down Counter Input -->
+    <ion-row>
+      <ion-col class="columnInputs">
+        <ion-input
+          [value]="countdown"
+          placeholder="00 Hours"
+          type="text"
+          disabled
+          class="bigText"
+          id="counter"
+        ></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <!-- Button toggle countdown -->
+    <ion-row>
+      <ion-col class="columnInputs">
+        <ion-button
+          (click)="shot()"
+          fill="solid"
+          size="large"
+          class="buttons"
+          id="buttonShot"
+          >Start</ion-button
+        >
+      </ion-col>
+    </ion-row>
+
+    <!-- segments bar -->
+    <ion-row>
+      <ion-col>
+        <ion-segment
+          scrollable="true"
+          mode="md"
+          [value]="valueSelected"
+          (ionChange)="segmentChanged($event)"
+        >
+          <ion-segment-button
+            value="{{counterInfo.id}}"
+            mode="ios"
+            *ngFor="let counterInfo of countersInfo"
+          >
+            <ion-label>{{counterInfo.title}}</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

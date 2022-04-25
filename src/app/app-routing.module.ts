@@ -11,6 +11,14 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'counter-slides/:numbersOfSlides',
+    loadChildren: () => import('./counter-slides/counter-slides.module').then( m => m.CounterSlidesPageModule)
+  },
+  {
+    path: 'tabs-counters',
+    loadChildren: () => import('./tabs-counters/tabs-counters.module').then( m => m.TabsCountersPageModule)
+  },
 ];
 
 @NgModule({
