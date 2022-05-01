@@ -16,6 +16,7 @@ export class TabsCountersPage implements OnInit {
   currentCounters = [];
   triggerCounter: any;
 
+
   constructor() { }
 
   ngOnInit() {
@@ -136,4 +137,3 @@ export class TabsCountersPage implements OnInit {
   }
 
 }
-
