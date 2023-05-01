@@ -19,7 +19,7 @@ Este proyecto fue iniciado en marzo de 2022 y se completó en diciembre de 2022.
 <!-- - Firebase Authentication
 - Google Calendar API -->
 
-## Cómo utilizar
+## Instalación
 1. Clonar el repositorio.
 2. Instalar las dependencias con el comando `npm install`.
 3. Ejecutar la aplicación con el comando `ionic serve`.
